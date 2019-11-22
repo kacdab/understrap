@@ -22,9 +22,7 @@ RUN npm install -g gulp && \
 
 FROM wordpress
 
-COPY --from=node /tmp/build /tmp/build
-ADD start.sh /usr/local/bin/start.sh
-RUN chmod +x /usr/local/bin/start.sh
+COPY --from=node /tmp/build/dist /usr/src/wordpress/wp-content/themes/kacper
 
 # Expose a port to run on
 EXPOSE 80
